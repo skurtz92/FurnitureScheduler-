@@ -7,9 +7,11 @@
     <title>Furniture Scheduler</title>
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- additonal Bootstrap theme can go here-->
     <link href='fullcalendar.css' rel='stylesheet' />
     <link href='fullcalendar.print.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"></script>
     < </head>
 
         <body>
@@ -30,9 +32,9 @@
                             <form role="form">
                                 <!-- Here we create the text box for capturing the search term-->
                                 <div class="form-group">
-                                    <label for="delDate">Date</label>
-                                    <input type="text" class="form-control" id="delDate">
-                                </div>
+                                  <label for="datepicker">Date</label>
+                                  <input type="date" id="datepicker"></input>
+                                
                                 <!-- Here we capture the number of records that the user wants to retrieve  -->
                                 <div class="form-group">
                                     <label for="compName">Name of Company</label>
@@ -40,16 +42,16 @@
                                 </div>
                                 <!-- Here we capture the Start Year Parameter-->
                                 <div class="form-group">
-                                    <label for="startYear">Delivery Address:</label>
-                                    <input type="text" class="form-control" id="startYear">
+                                    <label for="delAddress">Delivery Address</label>
+                                    <input type="text" class="form-control" id="delAddress">
                                 </div>
                                 <!-- Here we capture the End Year Parameter -->
                                 <div class="form-group">
-                                    <label for="itemNum">Number of Items:</label>
+                                    <label for="itemNum">Number of Items</label>
                                     <input type="text" class="form-control" id="itemNum">
                                 </div>
                                 <div class="form-group">
-                                    <label for="projectedHours">Projected Time Required:</label>
+                                    <label for="projectedHours">Projected Time Required</label>
                                     <input type="text" class="form-control" id="projectedHours">
                                 </div>
                                
@@ -60,11 +62,10 @@
 
                                 <div class="form-group">
                                     <label for="enterBy">Entered By:</label>
-                                    <input type="text" class="form-control" id="specInstr">
+                                    <input type="text" class="form-control" id="enterBy">
                                 </div>
                                 <!-- Here we have our final submit button -->
-                                <button type="" class="btn btn-default" id="enterBy">
-                                    </i> Submit</button>
+                                <button type="" class="btn btn-default" id="submitDelivery">Submit</button>
                             </form>
                         </div>
                     </div>
