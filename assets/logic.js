@@ -52,5 +52,27 @@ $(document).ready(function() {
 		salesperson: enteredBy
 	}
 
+	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
+
+	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
+
+	$.ajax({url: queryURL, method: 'GET'})
+
+    // We store all of the retrieved data inside of an object called "response"
+    .done(function(response) {
+
+      // Log the queryURL
+      console.log(queryURL);
+
+      // Log the resulting object
+      console.log(response);
+
+      // Transfer content to HTML
+      $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
+      $("#weatherForecast").append("<p>Humidity: " + response.main.humidity + "%</p>");
+      $("#weatherForecast").append("<p>Forecast High: " + response.main.temp_max + "</p>");
+      $("#weatherForecast").append("<p>Forecast Low: " + response.main.temp_min + "</p>");
+    }); 
+
 //end of document ready function		
 });
