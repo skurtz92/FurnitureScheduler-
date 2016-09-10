@@ -27,12 +27,6 @@ $(document).ready(function() {
 	//end of full calendar function
 	});
 
-	//$('#datepicker').datepicker();
-
-	/*$('#datepicker').on('change', function(event){
-    deliveryDate = event.currentTarget.value;
-	});*/
-
 	//get user inputs
 	deliveryDate = $("#delDate").val();
 	companyName = $("#compName").val().trim();
@@ -55,6 +49,8 @@ $(document).ready(function() {
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
 
 	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
+	/*var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;*/
+	
 
 	$.ajax({url: queryURL, method: 'GET'})
 
@@ -68,7 +64,7 @@ $(document).ready(function() {
       console.log(response);
 
       // Transfer content to HTML
-      $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
+     $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
       $("#weatherForecast").append("<p>Humidity: " + response.main.humidity + "%</p>");
       $("#weatherForecast").append("<p>Forecast High: " + response.main.temp_max + "</p>");
       $("#weatherForecast").append("<p>Forecast Low: " + response.main.temp_min + "</p>");
