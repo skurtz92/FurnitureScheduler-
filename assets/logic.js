@@ -4,7 +4,7 @@ $(document).ready(function() {
 			defaultDate: '2016-09-12',
 			editable: true,
 			//this will show only Monday-Friday
-			//weekends: false,
+			weekends: false,
 			eventLimit: true, // limits events to five a day
 			events: [
 				{
