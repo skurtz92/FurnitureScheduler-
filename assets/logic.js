@@ -1,14 +1,22 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCdI3oEsY4Y_OnuCJytdpfO3qoaiuh0jQI",
+  authDomain: "furniture-scheduler.firebaseapp.com",
+  databaseURL: "https://furniture-scheduler.firebaseio.com",
+  storageBucket: "",
+};
+firebase.initializeApp(config);
+
 var deliveryDate;
 var companyName;
 var deliveryAddress;
+var convertedDate;
 var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
 
 $(document).ready(function() {
-
-
 
 	$('#calendar').fullCalendar({
 		defaultDate: '2016-09-12',
@@ -21,35 +29,77 @@ $(document).ready(function() {
 				title: 'All Day Event',
 				start: '2016-09-01'
 			},
-			
 				
 		]
 	//end of full calendar function
 	});
 
-	//get user inputs
-	deliveryDate = $("#delDate").val();
-	companyName = $("#compName").val().trim();
-	deliveryAddress = $("#delAddress").val().trim();
-	itemNumber = $("#itemNum").val().trim();
-	timeRequired = $("#projectedHours").val().trim();
-	specialInstructions = $("#specInstr").val().trim();
-	enteredBy = $("#enterBy").val().trim();
+	//button for adding a new delivery
+	$("#submitDelivery").on("click", function() {
 
-	var newDeliveryListing = {
-		title: companyName,
-		start: deliveryDate,
-		addy: deliveryAddress,
-		items: itemNumber,
-		time: timeRequired,
-		instrux: specialInstructions,
-		salesperson: enteredBy
-	}
+		//get user inputs
+		deliveryDate = $("#datepicker").val();
+		convertedDate = moment(deliveryDate).format("YYYY-MM-DD");
+		companyName = $("#compName").val().trim();
+		deliveryAddress = $("#delAddress").val().trim();
+		itemNumber = $("#itemNum").val().trim();
+		timeRequired = $("#projectedHours").val().trim();
+		specialInstructions = $("#specInstr").val().trim();
+		enteredBy = $("#enterBy").val().trim();
 
-	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
+		//ceate new object to hold delivery data
+		var newDeliveryListing = {
+			title: companyName,
+			start: convertedDate,
+			addy: deliveryAddress,
+			items: itemNumber,
+			time: timeRequired,
+			instrux: specialInstructions,
+			salesperson: enteredBy
+		};
+
+		console.log(newDeliveryListing);
+
+		//return false;
+
+		//upload delivery data to firebase
+		firebase.database().ref().push(newDeliveryListing);
+
+		//clear text boxes
+		$("#delDate").val("");
+		$("#compName").val("");
+		$("#delAddress").val("");
+		$("#itemNum").val("");
+		$("#projectedHours").val("");
+		$("#specInstr").val("");
+		$("#enterBy").val("");
+
+
+
+	//end of add delivery function
+	});
+
+	//add delivery to firebase
+	firebase.database().ref().on("child_added", function(childSnapshot) {
+
+		console.log(childSnapshot.val());
+
+		//store snapshot values in variable
+		addTitle = childSnapshot.val().title;
+		addStart = childSnapshot.val().start;
+		addAddy = childSnapshot.val().addy;
+		addItems = childSnapshot.val().items;
+		addTime = childSnapshot.val().time;
+		addInstrux = childSnapshot.val().instrux;
+		addSalesperson = childSnapshot.val().salesperson;
+
+	//end of add to firebase function
+	});
+
+	/*var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
 
 	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
-	/*var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;*/
+	var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;
 	
 
 	$.ajax({url: queryURL, method: 'GET'})
@@ -64,11 +114,11 @@ $(document).ready(function() {
       console.log(response);
 
       // Transfer content to HTML
-     $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
+      $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
       $("#weatherForecast").append("<p>Humidity: " + response.main.humidity + "%</p>");
       $("#weatherForecast").append("<p>Forecast High: " + response.main.temp_max + "</p>");
       $("#weatherForecast").append("<p>Forecast Low: " + response.main.temp_min + "</p>");
-    }); 
+    }); */
 
 //end of document ready function		
 });
