@@ -15,6 +15,7 @@ var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
+var events;
 
 $(document).ready(function() {
 
@@ -26,8 +27,8 @@ $(document).ready(function() {
 		eventLimit: true, // limits events to five a day
 		events: [
 			{
-				title: 'All Day Event',
-				start: '2016-09-01'
+				title: 'Test event',
+				start: '2016-09-13'
 			},
 				
 		]
@@ -84,7 +85,7 @@ $(document).ready(function() {
 
 		console.log(childSnapshot.val());
 
-		//store snapshot values in variable
+		//store snapshot values in variables
 		addTitle = childSnapshot.val().title;
 		addStart = childSnapshot.val().start;
 		addAddy = childSnapshot.val().addy;
@@ -94,6 +95,7 @@ $(document).ready(function() {
 		addSalesperson = childSnapshot.val().salesperson;
 
 	//end of add to firebase function
+
 	});
 
 	/*var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
