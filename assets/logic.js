@@ -15,7 +15,6 @@ var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
-var events;
 
 $(document).ready(function() {
 
@@ -32,6 +31,8 @@ $(document).ready(function() {
 			},
 				
 		]
+		
+
 	//end of full calendar function
 	});
 
@@ -58,8 +59,6 @@ $(document).ready(function() {
 			instrux: specialInstructions,
 			salesperson: enteredBy
 		};
-
-		console.log(newDeliveryListing);
 
 		//return false;
 
@@ -94,14 +93,30 @@ $(document).ready(function() {
 		addInstrux = childSnapshot.val().instrux;
 		addSalesperson = childSnapshot.val().salesperson;
 
+		//create new object to push to calendar - so far not working
+		var newDeliveryEvent = {
+			title: addTitle,
+			start: addStart,
+			addy: addAddy,
+			items: addItems,
+			time: addTime,
+			instrux: addInstrux,
+			salesperson: addSalesperson
+		}
+
+		//trying to push new event to fullCalendar event array. so far not working
+		//events.push(newDeliveryEvent);
+		//$("calendar").fullCalendar("rerenderEvents");
+		$("calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
+
 	//end of add to firebase function
 
 	});
 
-	/*var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
+	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
 
 	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
-	var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;
+	//var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;
 	
 
 	$.ajax({url: queryURL, method: 'GET'})
@@ -120,7 +135,7 @@ $(document).ready(function() {
       $("#weatherForecast").append("<p>Humidity: " + response.main.humidity + "%</p>");
       $("#weatherForecast").append("<p>Forecast High: " + response.main.temp_max + "</p>");
       $("#weatherForecast").append("<p>Forecast Low: " + response.main.temp_min + "</p>");
-    }); */
+    }); 
 
 //end of document ready function		
 });
