@@ -100,10 +100,12 @@ $(document).ready(function() {
 			salesperson: addSalesperson
 		}
 
+		console.log(newDeliveryEvent);
+
 		//push new event to fullCalendar event array - not working
 		//events.push(newDeliveryEvent);
-		$("calendar").fullCalendar("rerenderEvents");
-		//$("calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
+		//$("calendar").fullCalendar("rerenderEvents");
+		$("calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
 
 	//end of add to firebase function
 
