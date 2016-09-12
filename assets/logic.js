@@ -28,11 +28,8 @@ $(document).ready(function() {
 			{
 				title: 'Test event',
 				start: '2016-09-13'
-			},
-				
+			}	
 		]
-		
-
 	//end of full calendar function
 	});
 
@@ -75,7 +72,6 @@ $(document).ready(function() {
 		$("#enterBy").val("");
 
 
-
 	//end of add delivery function
 	});
 
@@ -104,10 +100,10 @@ $(document).ready(function() {
 			salesperson: addSalesperson
 		}
 
-		//trying to push new event to fullCalendar event array. so far not working
+		//push new event to fullCalendar event array - not working
 		//events.push(newDeliveryEvent);
-		//$("calendar").fullCalendar("rerenderEvents");
-		$("calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
+		$("calendar").fullCalendar("rerenderEvents");
+		//$("calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
 
 	//end of add to firebase function
 
