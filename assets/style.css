@@ -5,10 +5,16 @@ body {
 	font-size: 14px;
 	}
 
+.jumbotron {
+	font-family: 'Amatic SC', cursive;
+	
+}
+
 #calendar {
 	max-width: 650px;
 	margin: 0 auto;
 	}
+
 #weatherForecast {
 	text-align: center;
 }
