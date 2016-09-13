@@ -12,77 +12,85 @@
     <link href='fullcalendar.css' rel='stylesheet' />
     <link href='fullcalendar.print.css' rel='stylesheet' media='print' />
     <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    </script>
 </head>
 
-        <body>
-            <div class="jumbotron" style="background-color: #20315A ; color: white;">
-                <h1 class="text-center">Delivery Scheduler</strong></h1>
-            </div>
-            <div id='calendar'>
-                
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 col-lg-6">
-                    <br>
-                    <!-- First panel is for handling the search parameters -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i>Delivery Parameters</strong></h3>
-                        </div>
-                        <div class="panel-body">
-                            <!-- Here we create an HTML Form for handling the inputs-->
-                            <form role="form">
-                                <!-- Here we create the text box for capturing the search term-->
-                                <div class="form-group">
-                                  <label for="datepicker">Date</label>
-                                  <input type="date" id="datepicker"></input>
-                                
-                                <!-- Here we capture the number of records that the user wants to retrieve  -->
-                                <div class="form-group">
-                                    <label for="compName">Name of Company</label>
-                                    <input type="text" class="form-control" id="compName">
-                                </div>
-                                <!-- Here we capture the Start Year Parameter-->
-                                <div class="form-group">
-                                    <label for="delAddress">Delivery Address</label>
-                                    <input type="text" class="form-control" id="delAddress">
-                                </div>
-                                <!-- Here we capture the End Year Parameter -->
-                                <div class="form-group">
-                                    <label for="itemNum">Number of Items</label>
-                                    <input type="text" class="form-control" id="itemNum">
-                                </div>
-                                <div class="form-group">
-                                    <label for="projectedHours">Projected Time Required</label>
-                                    <input type="text" class="form-control" id="projectedHours">
-                                </div>
-                               
-                                <div class="form-group">
-                                    <label for="specInstr">Special Instructions (Stair Carry/Large Items)</label>
-                                    <input type="text" class="form-control" id="specInstr">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="enterBy">Entered By</label>
-                                    <input type="text" class="form-control" id="enterBy">
-                                </div>
-                                <!-- Here we have our final submit button -->
-                                <button type="" class="btn btn-default" id="submitDelivery">Submit</button>
-                            </form>
-                        </div>
+<body>
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+        <h1 class="text-center">Delivery Scheduler</strong></h1>
+    </div>
+    <div id='calendar'>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-6">
+            <br>
+            <!-- First panel is for handling the search parameters -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i>Delivery Parameters</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+                        <!-- Here we create the text box for capturing the search term-->
+                        <div class="form-group">
+                            <label for="datepicker">Date</label>
+                            <input type="date" id="datepicker"></input>
+                            <!-- Here we capture the number of records that the user wants to retrieve  -->
+                            <div class="form-group">
+                                <label for="compName">Name of Company</label>
+                                <input type="text" class="form-control" id="compName">
+                            </div>
+                            <!-- Here we capture the Start Year Parameter-->
+                            <div class="form-group">
+                                <label for="delAddress">Delivery Address</label>
+                                <input type="text" class="form-control" id="delAddress">
+                            </div>
+                            <!-- Here we capture the End Year Parameter -->
+                            <div class="form-group">
+                                <label for="itemNum">Number of Items</label>
+                                <input type="text" class="form-control" id="itemNum">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectedHours">Projected Time Required</label>
+                                <input type="text" class="form-control" id="projectedHours">
+                            </div>
+                            <div class="form-group">
+                                <label for="specInstr">Special Instructions (Stair Carry/Large Items)</label>
+                                <input type="text" class="form-control" id="specInstr">
+                            </div>
+                            <div class="form-group">
+                                <label for="enterBy">Entered By</label>
+                                <input type="text" class="form-control" id="enterBy">
+                            </div>
+                            <!-- Here we have our final submit button -->
+                            <button type="" class="btn btn-default" id="submitDelivery">Submit</button>
+                    </form>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div id="weatherForecast">
-                    <h3><center>Today's Weather Forecast</center></h3>
-                    
-                </div>
+        </div>
+        <div class="row">
+            <div id="weatherForecast">
+                <h3><center>Today's Weather Forecast</center></h3>
             </div>
-        
+        </div>
+        <div id="map"></div>
+        <script>
+        function initMap() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: {
+                    lat: 44.540,
+                    lng: -78.546
+                },
+                zoom: 8
+            });
+        }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8iCUb9Rag5Lpll-xIig4TMNytHXlEinU&callback=initMap">
+        </script>
         <!-- Firebase Reference -->
         <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
         <script src='lib/moment.min.js'></script>
@@ -90,6 +98,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src='fullcalendar.min.js'></script>
         <script src="assets/logic.js"></script>
-        
-    </body>
+</body>
+
 </html>

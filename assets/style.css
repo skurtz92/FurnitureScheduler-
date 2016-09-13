@@ -19,3 +19,10 @@ body {
 	text-align: center;
 }
 
+#map {
+        width: 40%;
+        height: 300px;
+        float: right;
+        margin-top: -320px;
+        margin-right: 100px;
+     }
