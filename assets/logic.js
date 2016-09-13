@@ -29,7 +29,16 @@ $(document).ready(function() {
 				title: 'Test event',
 				start: '2016-09-13'
 			}	
-		]
+		],
+		eventClick: function(event) {
+			swal({
+				title: event.title,
+				html: true,
+				text: "<p>Delivery address: " + event.addy + "</p><p>Number of items: " + event.items + "</p><p>Projected time required: " + event.time + "</p><p>Special instructions: " + event.instrux + "</p><p>Entered by: " + event.salesperson + "</p>",
+				allowOutsideClick: true
+				//customCLass - can use to specify a CSS class for styling
+			})
+		}
 	//end of full calendar function
 	});
 
