@@ -113,7 +113,7 @@ $(document).ready(function() {
 
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
 
-	var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
+	var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Austin&units=imperial&appid=" + APIkey;
 	//var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin&units=imperial&cnt=7&appid=" + APIkey;
 	
 
