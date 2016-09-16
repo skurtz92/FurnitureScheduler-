@@ -112,6 +112,10 @@ $(document).ready(function() {
 
 		console.log(newDeliveryEvent);
 
+		var deliveriesByDate = firebase.database().ref().orderByChild("start");
+
+		console.log(deliveriesByDate);
+
 		//push new event to fullCalendar event array - not working
 		//events.push(newDeliveryEvent);
 		//$("calendar").fullCalendar("rerenderEvents");
