@@ -7,7 +7,14 @@ body {
 
 .jumbotron {
 	font-family: 'Amatic SC', cursive;
-	
+	padding: 0.5em;
+
+
+}
+
+.jumbotron h1{
+	font-size: 100px;
+
 }
 
 #calendar {
@@ -25,3 +32,11 @@ body {
       
         
      }
+
+  .img-fluid {
+	width: 150px;
+	height: auto;
+	margin: 50px;
+
+
+  }
