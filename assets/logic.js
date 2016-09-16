@@ -17,6 +17,8 @@ var specialInstructions;
 var enteredBy;
 var deliveriesByDate = [];
 
+var dateCount;
+
 $(document).ready(function() {
 
 	$('#calendar').fullCalendar({
@@ -40,7 +42,7 @@ $(document).ready(function() {
 				allowOutsideClick: true
 				//customCLass - can use to specify a CSS class for styling
 			})
-		}
+		},
 	//end of full calendar function
 	});
 
@@ -113,14 +115,23 @@ $(document).ready(function() {
 
 		console.log(newDeliveryEvent);
 
+		//creates array of event dates
 		deliveriesByDate.push(addStart);
 
 		console.log(deliveriesByDate);
 
+		count = {};
+
+		//counts occurrence of each date, stores in object
+		deliveriesByDate.forEach(function(el) {
+			count[el] = count[el] + 1 || 1;
+		});
+
+		console.log(count);
+
 		//events.push(newDeliveryEvent);
 		//$("calendar").fullCalendar("rerenderEvents");
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true );
-
 	//end of add to firebase function
 
 	});
@@ -154,29 +165,14 @@ $(document).ready(function() {
 });
 
 function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: 30.374784, lng: -97.676455}
-        });
-        var geocoder = new google.maps.Geocoder();
+    var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {
+                lat: 44.540,
+                lng: -78.546
+        },
+        zoom: 8
+    });
+}
 
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
-      }
-
-      function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('delAddress').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
 initMap();
