@@ -33,10 +33,19 @@ body {
         
      }
 
-  .img-fluid {
+.img-fluid {
 	
 	height: auto;
 	
+}
 
+h2 {
 
-  }
+	font-family: 'Raleway', sans-serif;
+}
+
+panel-title {
+	font-family: 'Raleway', sans-serif;
+	
+
+}

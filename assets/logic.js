@@ -115,7 +115,7 @@ $(document).ready(function() {
 		//push new event to fullCalendar event array - not working
 		//events.push(newDeliveryEvent);
 		//$("calendar").fullCalendar("rerenderEvents");
-		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent );
+		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true );
 
 	//end of add to firebase function
 
