@@ -23,6 +23,7 @@ $(document).ready(function() {
 		editable: true,
 		//this will show only Monday-Friday
 		weekends: false,
+		editable: false,
 		eventLimit: true, // limits events to five a day
 		events: [
 			{
