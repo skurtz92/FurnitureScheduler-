@@ -15,7 +15,6 @@ var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
-var deliveriesByDate = [];
 
 $(document).ready(function() {
 
@@ -113,10 +112,7 @@ $(document).ready(function() {
 
 		console.log(newDeliveryEvent);
 
-		deliveriesByDate.push(addStart);
-
-		console.log(deliveriesByDate);
-
+		//push new event to fullCalendar event array - not working
 		//events.push(newDeliveryEvent);
 		//$("calendar").fullCalendar("rerenderEvents");
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true );
@@ -179,4 +175,4 @@ function initMap() {
           }
         });
       }
-initMap();
+//initMap();
