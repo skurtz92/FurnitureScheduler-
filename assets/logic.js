@@ -20,11 +20,11 @@ $(document).ready(function() {
 
 	$('#calendar').fullCalendar({
 		defaultDate: '2016-09-12',
-		editable: true,
 		//this will show only Monday-Friday
 		weekends: false,
+		//removes ability to drag and drop
 		editable: false,
-		eventLimit: true, // limits events to five a day
+		eventLimit: true, // limits events shown to five a day
 		events: [
 			{
 				title: 'Test event',
