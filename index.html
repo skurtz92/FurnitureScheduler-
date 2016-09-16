@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset='utf-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicons/favicon.ico">    
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+        <title>Furniture Scheduler</title>
+        <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/sweetalert/sweetalert.css">
+    <link href='fullcalendar.css' rel='stylesheet' />
+    <link href='fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron" style="background-color: white ; color: #20315A;">
+       <span><h1 class="text-center"><img src="TOPS Logo transparent.gif" class="img-fluid" alt="Responsive image" id="logo"><u>Delivery Scheduler
+        </img></u></strong></h1></span>
+</div>
+      
+
+    
+    <div id='calendar'>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-6">
+            <br>
+            <!-- First panel is for handling the search parameters -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i>Delivery Parameters</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+                        <!-- Here we create the text box for capturing the search term-->
+                        <div class="form-group">
+                            <label for="datepicker">Date</label>
+                            <input type="date" id="datepicker"></input>
+                            <!-- Here we capture the number of records that the user wants to retrieve  -->
+                            <div class="form-group">
+                                <label for="compName">Name of Company</label>
+                                <input type="text" class="form-control" id="compName">
+                            </div>
+                            <!-- Here we capture the Start Year Parameter-->
+                            <div class="form-group">
+                                <label for="delAddress">Delivery Address</label>
+                                <input type="text" class="form-control" id="delAddress">
+                                <input id="submit" type="button" value="Click Here To See Address On Map!!!">
+                            </div>
+                            <!-- Here we capture the End Year Parameter -->
+                            <div class="form-group">
+                                <label for="itemNum">Number of Items</label>
+                                <input type="text" class="form-control" id="itemNum">
+                            </div>
+                            <div class="form-group">
+                                <label for="projectedHours">Projected Time Required</label>
+                                <input type="text" class="form-control" id="projectedHours">
+                            </div>
+                            <div class="form-group">
+                                <label for="specInstr">Special Instructions (Stair Carry/Large Items)</label>
+                                <input type="text" class="form-control" id="specInstr">
+                            </div>
+                            <div class="form-group">
+                                <label for="enterBy">Entered By</label>
+                                <input type="text" class="form-control" id="enterBy">
+                            </div>
+                            <!-- Here we have our final submit button -->
+                            <button type="" class="btn btn-default" id="submitDelivery">Submit</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-6">
+                <div id="weatherForecast">
+                    <h3><center>Today's Weather Forecast</center></h3>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <!-- Firebase Reference -->
+        <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+        <script src='lib/moment.min.js'></script>
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src='fullcalendar.min.js'></script>
+        <script src="assets/sweetalert/sweetalert.min.js"></script>
+        <script src="assets/logic.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOscsE_1khKo6mhdlQQ8L0o822kgOeH4E&callback=initMap"></script>
+</body>
+
+</html>
