@@ -37,6 +37,9 @@ body {
 	width: 150px;
 	height: auto;
 	margin: 50px;
+ }
 
+ #logo {
+ 	display: inline;
 
-  }
+ }
