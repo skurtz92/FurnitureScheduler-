@@ -29,17 +29,22 @@ $(document).ready(function() {
 		eventLimit: true, // limits events shown to five a day
 		events: [
 			{
-				title: 'Test event',
-				start: '2016-09-13'
+				title: "Example event",
+				start: "2016-09-13",
+				addy: "123 Main Street, Austin, TX 78701",
+				items: "5",
+				time: "2 hours",
+				instrux: "stairs",
+				assembly: "[yes/no]",
+				salesperson: "Salesperson1"
 			}	
 		],
 		eventClick: function(event) {
 			swal({
 				title: event.title,
 				html: true,
-				text: "<p>Delivery address: " + event.addy + "</p><p>Number of items: " + event.items + "</p><p>Projected time required: " + event.time + "</p><p>Special instructions: " + event.instrux + "</p><p>Assembly required: " + event.assembly + "</p><p>Entered by: " + event.salesperson + "</p>",
-				allowOutsideClick: true
-				//customCLass - can use to specify a CSS class for styling
+				text: "<p><span class='bold'>Delivery address: </span>" + event.addy + "</p><p><span class='bold'>Number of items: </span>" + event.items + "</p><p><span class='bold'>Projected time required: </span>" + event.time + "</p><p><span class='bold'>Special instructions: </span>" + event.instrux + "</p><p><span class='bold'>Assembly required: </span>" + event.assembly + "</p><p><span class='bold'>Entered by: </span>" + event.salesperson + "</p>",
+				allowOutsideClick: true,
 			})
 		}
 	//end of full calendar function
