@@ -57,17 +57,27 @@ $(document).ready(function() {
 		specialInstructions = $("#specInstr").val().trim();
 		enteredBy = $("#enterBy").val().trim();
 
+		if (deliveryDate === null || companyName === "") {
+			swal({
+				title: "Incomplete entry",
+				html: true,
+				text: "<p>Please enter a delivery date and company name.</p>",
+				allowOutsideClick: true
+			});
+			return false;
+		}
+		else {
 		//ceate new object to hold delivery data
-		var newDeliveryListing = {
-			title: companyName,
-			start: convertedDate,
-			addy: deliveryAddress,
-			items: itemNumber,
-			time: timeRequired,
-			instrux: specialInstructions,
-			salesperson: enteredBy
-		};
-
+			var newDeliveryListing = {
+				title: companyName,
+				start: convertedDate,
+				addy: deliveryAddress,
+				items: itemNumber,
+				time: timeRequired,
+				instrux: specialInstructions,
+				salesperson: enteredBy
+			};
+		}
 		//return false;
 
 		//upload delivery data to firebase
