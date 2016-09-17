@@ -15,6 +15,7 @@ var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
+//var deliveriesByDate = [];
 
 $(document).ready(function() {
 
@@ -112,7 +113,20 @@ $(document).ready(function() {
 
 		console.log(newDeliveryEvent);
 
-		//push new event to fullCalendar event array - not working
+		/*creates array of event dates
+		deliveriesByDate.push(addStart);
+
+		console.log(deliveriesByDate);
+
+		count = {};
+
+		//counts occurrence of each date, stores in object
+		deliveriesByDate.forEach(function(el) {
+			count[el] = count[el] + 1 || 1;
+		});
+
+		console.log(count);*/
+
 		//events.push(newDeliveryEvent);
 		//$("calendar").fullCalendar("rerenderEvents");
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
