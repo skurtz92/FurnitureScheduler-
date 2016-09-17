@@ -36,7 +36,7 @@ $(document).ready(function() {
 				time: "2 hours",
 				instrux: "stairs",
 				assembly: "[yes/no]",
-				salesperson: "Salesperson1"
+				salesperson: "Salespers"
 			}	
 		],
 		eventClick: function(event) {
