@@ -149,6 +149,26 @@ $(document).ready(function() {
 //end of document ready function		
 });
 
+function fetchWeatherForecast(location,$http,$filter){
+  $http.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+location.latitude+"&lon="+location.longitude+"&cnt=10&mode=json&units=metric").success(function(data) {
+    addWeatherToCalendar(data,$filter);
+  });
+}
+
+function addWeatherToButton(weatherData,$filter){
+  var date = new Date();
+  for (var i = 0; i < weatherData.list.length; i++) {
+    var element = angular.element('td.fc-day[data-date="' + $filter('date')(date, 'yyyy-MM-dd').toString() + '"]')
+    var html = element[0].innerHTML
+    var icon = weatherData.list[i].weather[0].icon
+    var temp = weatherData.list[i].temp.max + "-" +weatherData.list[i].temp.min
+    element.append("<span><img src='http://openweathermap.org/img/w/"+icon+".png'/>"+temp+"</span>")
+    date.setDate(date.getDate() + 1);
+  }
+}
+
+
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
