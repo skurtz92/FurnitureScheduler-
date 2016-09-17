@@ -15,6 +15,7 @@ var itemNumber;
 var timeRequired;
 var specialInstructions;
 var enteredBy;
+var assemblyRequired;
 //var deliveriesByDate = [];
 
 $(document).ready(function() {
@@ -36,7 +37,7 @@ $(document).ready(function() {
 			swal({
 				title: event.title,
 				html: true,
-				text: "<p>Delivery address: " + event.addy + "</p><p>Number of items: " + event.items + "</p><p>Projected time required: " + event.time + "</p><p>Special instructions: " + event.instrux + "</p><p>Entered by: " + event.salesperson + "</p>",
+				text: "<p>Delivery address: " + event.addy + "</p><p>Number of items: " + event.items + "</p><p>Projected time required: " + event.time + "</p><p>Special instructions: " + event.instrux + "</p><p>Assembly required: " + event.assembly + "</p><p>Entered by: " + event.salesperson + "</p>",
 				allowOutsideClick: true
 				//customCLass - can use to specify a CSS class for styling
 			})
@@ -55,13 +56,15 @@ $(document).ready(function() {
 		itemNumber = $("#itemNum").val().trim();
 		timeRequired = $("#projectedHours").val().trim();
 		specialInstructions = $("#specInstr").val().trim();
+		assemblyRequired = $("#assemblyReq").val().trim();
 		enteredBy = $("#enterBy").val().trim();
 
-		if (deliveryDate === null || companyName === "") {
+		//make sure all fields have been completed, don't allow submit if not
+		if (deliveryDate === "" || companyName === "" || deliveryAddress === "" || itemNumber === "" || timeRequired === "" || specialInstructions === "" || assemblyRequired === "" || enteredBy === "") {
 			swal({
-				title: "Incomplete entry",
+				title: "Incomplete Entry",
 				html: true,
-				text: "<p>Please enter a delivery date and company name.</p>",
+				text: "<p>All fields are required.</p>",
 				allowOutsideClick: true
 			});
 			return false;
@@ -75,6 +78,7 @@ $(document).ready(function() {
 				items: itemNumber,
 				time: timeRequired,
 				instrux: specialInstructions,
+				assembly: assemblyRequired,
 				salesperson: enteredBy
 			};
 		}
@@ -91,6 +95,7 @@ $(document).ready(function() {
 		$("#projectedHours").val("");
 		$("#specInstr").val("");
 		$("#enterBy").val("");
+		$("#assemblyReq").val("");
 
 
 	//end of add delivery function
@@ -109,8 +114,9 @@ $(document).ready(function() {
 		addTime = childSnapshot.val().time;
 		addInstrux = childSnapshot.val().instrux;
 		addSalesperson = childSnapshot.val().salesperson;
+		addAssembly = childSnapshot.val().assembly;
 
-		//create new object to push to calendar - so far not working
+		//create new object to push to calendar
 		var newDeliveryEvent = {
 			title: addTitle,
 			start: addStart,
@@ -118,12 +124,13 @@ $(document).ready(function() {
 			items: addItems,
 			time: addTime,
 			instrux: addInstrux,
+			assembly: addAssembly,
 			salesperson: addSalesperson
 		}
 
 		console.log(newDeliveryEvent);
 
-		/*creates array of event dates
+		/*creates array of event dates - working on even limits. so far not working
 		deliveriesByDate.push(addStart);
 
 		console.log(deliveriesByDate);
@@ -137,12 +144,9 @@ $(document).ready(function() {
 
 		console.log(count);*/
 
-		//events.push(newDeliveryEvent);
-		//$("calendar").fullCalendar("rerenderEvents");
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
 
 	//end of add to firebase function
-
 	});
 
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
