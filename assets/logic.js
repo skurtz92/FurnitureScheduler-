@@ -161,14 +161,12 @@ $(document).ready(function() {
 
 
 //end of document ready function		
-});
 
 function fetchWeatherForecast(location,$http,$filter){
   $http.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat="+location.latitude+"&lon="+location.longitude+"&cnt=10&mode=json&units=metric").success(function(data) {
     addWeatherToCalendar(data,$filter);
   });
 }
-
 function addWeatherToButton(weatherData,$filter){
   var date = new Date();
   for (var i = 0; i < weatherData.list.length; i++) {
@@ -180,8 +178,6 @@ function addWeatherToButton(weatherData,$filter){
     date.setDate(date.getDate() + 1);
   }
 }
-
-
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
