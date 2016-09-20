@@ -64,7 +64,7 @@ $(document).ready(function() {
 		assemblyRequired = $("#assemblyReq").val().trim();
 		enteredBy = $("#enterBy").val().trim();
 
-<<<<<<< HEAD
+
 		//ceate new object to hold delivery data
 		var newDeliveryListing = {
 			title: companyName,
@@ -76,7 +76,7 @@ $(document).ready(function() {
 			salesperson: enteredBy
 		};
 
-=======
+
 		//make sure all fields have been completed, don't allow submit if not
 		if (deliveryDate === "" || companyName === "" || deliveryAddress === "" || itemNumber === "" || timeRequired === "" || specialInstructions === "" || assemblyRequired === "" || enteredBy === "") {
 			swal({
@@ -100,7 +100,7 @@ $(document).ready(function() {
 				salesperson: enteredBy
 			};
 		}
->>>>>>> 488d6ce3ee0607e7577ecb10442492579e42e95d
+ 488d6ce3ee0607e7577ecb10442492579e42e95d
 		//return false;
 
 		//upload delivery data to firebase
@@ -166,12 +166,10 @@ $(document).ready(function() {
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
 
 	//end of add to firebase function
-<<<<<<< HEAD
+
 
 	
 
-=======
->>>>>>> 488d6ce3ee0607e7577ecb10442492579e42e95d
 	});
 
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
