@@ -172,10 +172,10 @@ $(document).ready(function() {
       console.log(response);
 
       // Transfer content to HTML
-      $("#weatherForecast").append("<p>Temperature: " + response.main.temp + "</p>");
-      $("#weatherForecast").append("<p>Humidity: " + response.main.humidity + "%</p>");
-      $("#weatherForecast").append("<p>Forecast High: " + response.main.temp_max + "</p>");
-      $("#weatherForecast").append("<p>Forecast Low: " + response.main.temp_min + "</p>");
+      $("#weatherForecast").append("<p class='weatherText'>Temperature: " + response.main.temp + "</p>");
+      $("#weatherForecast").append("<p class='weatherText'>Humidity: " + response.main.humidity + "%</p>");
+      $("#weatherForecast").append("<p class='weatherText'>Forecast High: " + response.main.temp_max + "</p>");
+      $("#weatherForecast").append("<p class='weatherText'>Forecast Low: " + response.main.temp_min + "</p>");
     }); 
 
 
