@@ -33,7 +33,7 @@ body {
         
      }
 
-  .img-fluid {
+.img-fluid {
 	width: 150px;
 	height: auto;
 	margin: 50px;
@@ -48,3 +48,18 @@ body {
  	font-weight: bold;
  }
 
+ #weatherForecast {
+ 	background-color: #99e6ff;
+ 	padding: 20px;
+ 	margin-bottom: 20px;
+ 	margin-top: 20px;
+ 	border-radius: 10px;
+ }
+
+.weatherText {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+p.weatherText {
+	font-size: 16px;
+}
