@@ -100,7 +100,6 @@ $(document).ready(function() {
 				salesperson: enteredBy
 			};
 		}
- 488d6ce3ee0607e7577ecb10442492579e42e95d
 		//return false;
 
 		//upload delivery data to firebase
