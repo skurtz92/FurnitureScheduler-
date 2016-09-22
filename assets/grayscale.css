@@ -99,7 +99,7 @@ a:focus {
   background-color: rgba(255, 255, 255, 0.3);
 }
 .navbar-custom .nav li.active a:hover {
-  color: white;
+  color: gray;
 }
 @media (min-width: 768px) {
   .navbar-custom {
@@ -131,6 +131,14 @@ a:focus {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.cursive-text {
+
+
+font-family: 'Sacramento', cursive;
+
+}
+
 .intro .intro-body {
   display: table-cell;
   vertical-align: middle;
@@ -147,10 +155,10 @@ a:focus {
     padding: 0;
   }
   .intro .intro-body .brand-heading {
-    font-size: 100px;
+    font-size: 75px;
   }
   .intro .intro-body .intro-text {
-    font-size: 26px;
+    font-size: 43px;
   }
 }
 

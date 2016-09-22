@@ -34,7 +34,11 @@
      }
 
 .img-fluid {
+<<<<<<< HEAD
 	
+=======
+	width: 150px;
+>>>>>>> c1b432b255039002c1f9ec9dd5d1fe69d4a10203
 	height: auto;
 	
 }
@@ -58,3 +62,18 @@ panel-title {
  	font-weight: bold;
  }
 
+ #weatherForecast {
+ 	background-color: #99e6ff;
+ 	padding: 20px;
+ 	margin-bottom: 20px;
+ 	margin-top: 20px;
+ 	border-radius: 10px;
+ }
+
+.weatherText {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+p.weatherText {
+	font-size: 16px;
+}
