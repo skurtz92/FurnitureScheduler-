@@ -199,7 +199,7 @@ $(document).ready(function() {
       		//loop through array within array to get forecase and icon
       		for (wea = 0; wea < response.list[w].weather.length; wea++) {
       			$("#weatherForecast").append("<p class='weatherText'>Forecast: " + response.list[w].weather[wea].description + "</p>");
-      			$("#weatherForecast").append("<img src='http://openweathermap.org/img/w/" + response.list[w].weather[wea].icon + ".png' alt='Icon depicting current weather'>");
+      			$("#weatherForecast").append("<img src='https://openweathermap.org/img/w/" + response.list[w].weather[wea].icon + ".png' alt='Icon depicting current weather'>");
       		}
       		weatherDay++
       //end of for loop to get weather	

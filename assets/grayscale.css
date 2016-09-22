@@ -8,7 +8,7 @@ body {
   height: 100%;
   font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
-  background-color: white;
+  background-color: #808080;
 }
 html {
   width: 100%;
@@ -164,7 +164,7 @@ font-family: 'Sacramento', cursive;
 
 #weather {
 
-  background: url(../img/gray.jpg) no-repeat bottom center scroll;
+  /*background: url() no-repeat bottom center scroll;*/
 
 
 }
