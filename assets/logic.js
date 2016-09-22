@@ -157,7 +157,7 @@ $(document).ready(function() {
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
 
 	//var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Austin+Tx&units=imperial&appid=" + APIkey;
-	var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin+TX&units=imperial&cnt=7&appid=" + APIkey;
+	var queryURL = "http://api.openweathermap.org/data/2.5/forecast/daily?id=4671654&units=imperial&cnt=7&appid=" + APIkey;
 	
 
 	$.ajax({url: queryURL, method: 'GET'})
@@ -171,14 +171,21 @@ $(document).ready(function() {
       // Log the resulting object
       console.log(response);
 
+      //loop through array of results to display temps and display in html
+
+      var weatherDay = 0;
       for (w = 0; w < response.list.length; w++) {
+      	$("#weatherForecast").append("<p class='weatherText'>" + moment(moment().add(weatherDay, "days")).format("MMMM D") + "</p>");
       	$("#weatherForecast").append("<p class='weatherText'>High: " + response.list[w].temp.max + "</p>");	
       	$("#weatherForecast").append("<p class='weatherText'>Low: " + response.list[w].temp.min + "</p>");
-
+      		
+      		//loop through array within array to get forecase and icon
       		for (wea = 0; wea < response.list[w].weather.length; wea++) {
       			$("#weatherForecast").append("<p class='weatherText'>Forecast: " + response.list[w].weather[wea].description + "</p>");
       			$("#weatherForecast").append("<img src='http://openweathermap.org/img/w/" + response.list[w].weather[wea].icon + ".png' alt='Icon depicting current weather'>");
-      	}
+      		}
+      		weatherDay++
+      //end of for loop to get weather	
       }
 
       // Transfer content to HTML
