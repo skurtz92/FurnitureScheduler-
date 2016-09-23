@@ -64,6 +64,19 @@ $(document).ready(function() {
 		assemblyRequired = $("#assemblyReq").val().trim();
 		enteredBy = $("#enterBy").val().trim();
 
+
+		//ceate new object to hold delivery data
+		var newDeliveryListing = {
+			title: companyName,
+			start: convertedDate,
+			addy: deliveryAddress,
+			items: itemNumber,
+			time: timeRequired,
+			instrux: specialInstructions,
+			salesperson: enteredBy
+		};
+
+
 		//make sure all fields have been completed, don't allow submit if not
 		if (deliveryDate === "" || companyName === "" || deliveryAddress === "" || itemNumber === "" || timeRequired === "" || specialInstructions === "" || assemblyRequired === "" || enteredBy === "") {
 			swal({
@@ -152,6 +165,10 @@ $(document).ready(function() {
 		$("#calendar").fullCalendar("renderEvent", newDeliveryEvent, true);
 
 	//end of add to firebase function
+
+
+	
+
 	});
 
 	var APIkey = "94ccf5084d7d124f3b9a747e7d55d177";
@@ -182,7 +199,7 @@ $(document).ready(function() {
       		//loop through array within array to get forecase and icon
       		for (wea = 0; wea < response.list[w].weather.length; wea++) {
       			$("#weatherForecast").append("<p class='weatherText'>Forecast: " + response.list[w].weather[wea].description + "</p>");
-      			$("#weatherForecast").append("<img src='http://openweathermap.org/img/w/" + response.list[w].weather[wea].icon + ".png' alt='Icon depicting current weather'>");
+      			$("#weatherForecast").append("<img src='https://openweathermap.org/img/w/" + response.list[w].weather[wea].icon + ".png' alt='Icon depicting current weather'>");
       		}
       		weatherDay++
       //end of for loop to get weather	
@@ -198,6 +215,10 @@ $(document).ready(function() {
 
 //end of document ready function		
 });
+
+
+
+
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {

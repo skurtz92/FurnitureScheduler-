@@ -1,4 +1,4 @@
-body {
+/*body {
 	margin: 40px 10px;
 	padding: 0;
 	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
@@ -34,15 +34,29 @@ body {
      }
 
 .img-fluid {
+<<<<<<< HEAD
+	
+=======
 	width: 150px;
+>>>>>>> c1b432b255039002c1f9ec9dd5d1fe69d4a10203
 	height: auto;
-	margin: 50px;
- }
+	
+}
 
- #logo {
- 	display: inline;
+h2 {
 
- }
+	font-family: 'Raleway', sans-serif;
+}
+
+panel-title {
+	font-family: 'Raleway', sans-serif;
+	
+
+}
+
+
+
+
 
  .bold {
  	font-weight: bold;
