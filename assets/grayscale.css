@@ -271,7 +271,7 @@ font-family: 'Sacramento', cursive;
     height: 400px;
     margin-top: 0px;
   }
- 
+
 }
 .btn {
   text-transform: uppercase;
@@ -349,4 +349,8 @@ body {
 #calendar {
   background-color: white;
   padding: 20px; 
+}
+
+label {
+  color: white;
 }
