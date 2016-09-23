@@ -194,8 +194,8 @@ $(document).ready(function() {
       var weatherDay = 0;
       for (w = 0; w < response.list.length; w++) {
       	$("#weatherForecast").append("<p class='weatherText bold'>" + moment(moment().add(weatherDay, "days")).format("MMMM D") + "</p>");
-      	$("#weatherForecast").append("<p class='weatherText'><span class='bold'>High:</span> " + response.list[w].temp.max + "</p>");	
-      	$("#weatherForecast").append("<p class='weatherText'><span class='bold'>Low:</span> " + response.list[w].temp.min + "</p>");
+      	$("#weatherForecast").append("<p class='weatherText'><span class='bold'>High:</span> " + response.list[w].temp.max + "&deg;F</p>");	
+      	$("#weatherForecast").append("<p class='weatherText'><span class='bold'>Low:</span> " + response.list[w].temp.min + "&deg;F</p>");
       		
       		//loop through array within array to get forecase and icon
       		for (wea = 0; wea < response.list[w].weather.length; wea++) {
