@@ -1,9 +1,10 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyCdI3oEsY4Y_OnuCJytdpfO3qoaiuh0jQI",
-  authDomain: "furniture-scheduler.firebaseapp.com",
-  databaseURL: "https://furniture-scheduler.firebaseio.com",
-  storageBucket: "",
+    apiKey: "AIzaSyAeGyp-IoDF15hy31Wy-9Y_e5cCDbjkmPo",
+    authDomain: "tops-delivery-scheduler.firebaseapp.com",
+    databaseURL: "https://tops-delivery-scheduler.firebaseio.com",
+    storageBucket: "",
+    messagingSenderId: "327987672246",
 };
 firebase.initializeApp(config);
 
