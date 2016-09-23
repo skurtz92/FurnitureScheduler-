@@ -354,3 +354,7 @@ body {
 label {
   color: white;
 }
+
+.bold {
+  font-weight: bold;
+ }
